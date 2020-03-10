@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PoMenuItem } from '@portinari/portinari-ui';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'desafio-portinari';
+  readonly menus: Array<PoMenuItem> = [
+    {label: 'Dashboard', link: '/'},
+    {label: 'Tarefas', link: '/tasks'}
+  ];
+
 }

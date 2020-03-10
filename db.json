@@ -1,0 +1,21 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Richard Lopes",
+      "password": "1234",
+      "imagePath": "assets/img/users/default.png"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "iduser": 1,
+      "name": "Desafio Portinari",
+      "description": "Entregar o projeto do Portinari",
+      "taskCreated": "20200309",
+      "taskFinish": "",
+      "deliveryEstimated": ""
+    }
+  ]
+}

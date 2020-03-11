@@ -7,18 +7,22 @@ import { AppRoutingModule } from './app.routing.module';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { TasksComponent } from './tasks/tasks.component';
+import { PoAvatarModule } from '@portinari/portinari-ui';
+import { TaskComponent } from './tasks/task/task.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    TasksComponent
+    TasksComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,
     PoModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PoAvatarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

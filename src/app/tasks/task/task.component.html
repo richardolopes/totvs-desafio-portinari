@@ -1,0 +1,24 @@
+<po-widget
+  class="po-lg-3 po-mt-2"
+  p-height="200"
+  p-primary="true"
+  p-primary-label="Concluir"
+  p-secondary-label="Visualizar"
+  [p-title]="task.name"
+  (p-primary-action)="finishTask(task)"
+  (p-secondary-action)="viewTask(task)">
+
+  <div class="po-font-subtitle po-text-center">{{ task.name }}</div>
+  <div class="po-text-center">Data estimada de entrega: {{ task.deliveryEstimated | date : 'dd/MM/yyyy' }}</div>
+</po-widget>
+
+<po-modal #detailsTaskModal [p-title]="titleDetailsTask">
+  <po-table
+    [p-columns]="columnsDetails"
+    [p-items]="itemsDetails">
+  </po-table>
+</po-modal>
+
+<po-modal #finishTaskModal [p-title]="titleFinishModal">
+  <h1>richard</h1>
+</po-modal>

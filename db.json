@@ -13,9 +13,90 @@
       "iduser": 1,
       "name": "Desafio Portinari",
       "description": "Entregar o projeto do Portinari",
-      "taskCreated": "20200309",
+      "taskCreated": "2020-03-09",
+      "taskFinish": "2020-03-31",
+      "deliveryEstimated": "2020-03-30",
+      "steps": "finish"
+    },
+    {
+      "id": 2,
+      "iduser": 1,
+      "name": "Página de login",
+      "description": "Validação do formato de e-mail. Senha não deve ficar visível enquanto digitada. Deve validar o acesso através da API fake.",
+      "taskCreated": "2020-03-09",
       "taskFinish": "",
-      "deliveryEstimated": ""
+      "deliveryEstimated": "2020-03-17",
+	  "steps": "progress"
+    },
+    {
+      "id": 3,
+      "iduser": 1,
+      "name": "Lista de tarefas",
+      "description": "Preciso conseguir buscar uma tarefa pelo nome, categoria ou data limite. Preciso conseguir visualizar o nome da tarefa. Preciso conseguir visualizar a data limite da tarefa. Preciso conseguir visualizar se a tarefa está atrasada ou não. Preciso conseguir visualizar a categoria da tarefa As tarefas que são para hoje ou estão atrasadas, devem ser exibidas com destaque das demais tarefas. Bônus: Caso eu tenha mais que 10 tarefas pendentes, mostrar apenas as 10 mais antigas e exibir uma opção de “Carregar Mais”, para evitar sobrecarga no servidor. (Paginação)",
+      "taskCreated": "2020-03-09",
+      "taskFinish": "",
+      "deliveryEstimated": "2020-03-09",
+	  "steps": "backlog"
+    },
+    {
+      "id": 4,
+      "iduser": 1,
+      "name": "Concluir uma tarefa",
+      "description": "Ao marcar uma tarefa pendente como concluída, ele deve sumir da minha lista de tarefas pendentes. Eu posso concluir uma tarefa no passado ou no futuro, mas esta informação ser  mantida como histórico.",
+      "taskCreated": "2020-03-10",
+      "taskFinish": "",
+      "deliveryEstimated": "2020-03-30",
+      "steps": "progress"
+    },
+    {
+      "id": 5,
+      "iduser": 1,
+      "name": "Lista de tarefas concluidas",
+      "description": "O histórico deve ter as mesmas caracterísitcas que a lista de tarefas pendentes (busca, filtro, dados), com os seguintes complementos: Devo conseguir visualizar a data prevista e a data em que a tarefa foi realizada. A lista não deve mostrar tarefas pendentes",
+      "taskCreated": "2020-03-10",
+      "taskFinish": "",
+      "deliveryEstimated": "2020-03-30",
+      "steps": "progress"
+    },
+    {
+      "id": 6,
+      "iduser": 1,
+      "name": "Ajustar lista",
+      "description": "Lista ou widget?",
+      "taskCreated": "2020-03-10",
+      "taskFinish": "",
+      "deliveryEstimated": "2020-03-30",
+      "steps": "progress"
+    },
+    {
+      "id": 7,
+      "iduser": 1,
+      "name": "Excluir tarefas",
+      "description": "Somente tarefas concluídas podem ser excluídas, e deve apresentar uma confirmação ao excluir, questionando se tenho certeza desta ação.",
+      "taskCreated": "2020-03-10",
+      "taskFinish": "",
+      "deliveryEstimated": "2020-03-30",
+      "steps": "progress"
+    },
+    {
+      "id": 8,
+      "iduser": 1,
+      "name": "Alterar tarefas",
+      "description": "quero poder alterar uma tarefa pendente, alterando seu prazo, categoria ou nome. Posso alterar apenas as tarefas pendentes. Ao alterar o prazo, não deve ser permitido utilizar uma data no passado.",
+      "taskCreated": "2020-03-10",
+      "taskFinish": "",
+      "deliveryEstimated": "2020-03-30",
+      "steps": "progress"
+    },
+    {
+      "id": 9,
+      "iduser": 1,
+      "name": "Atrasada",
+      "description": "acabou",
+      "taskCreated": "2020-03-10",
+      "taskFinish": "",
+      "deliveryEstimated": "2020-03-09",
+      "steps": "progress"
     }
   ]
 }

@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { PoPageLogin } from '@portinari/portinari-templates';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: []
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
+  constructor(private loginService: LoginService) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  login(data: PoPageLogin) {
+    this.loginService.auth(data).subscribe(result => {
+      console.log(result)
+    });
   }
 
 }

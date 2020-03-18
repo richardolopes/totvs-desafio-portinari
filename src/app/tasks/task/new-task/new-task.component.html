@@ -1,0 +1,10 @@
+<po-dynamic-form #dynamicForm p-auto-focus="name" [p-fields]="fields" [p-value]="person">
+</po-dynamic-form>
+
+<BR>
+
+<div class="po-row">
+    <po-button class="po-md-3" p-label="Criar tarefa" [p-disabled]="dynamicForm?.form.invalid"
+        (p-click)="poNotification.success('Tarefa criada com sucesso!'); dynamicForm.form.reset()">
+    </po-button>
+</div>

@@ -113,6 +113,27 @@
       "taskFinish": "",
       "deliveryEstimated": "2020-03-09",
       "steps": "progress"
+    },
+    {
+      "name": "TechFin",
+      "category": "AdvPL, ",
+      "taskCreated": "2020-03-19",
+      "deliveryEstimated": "2020-03-24",
+      "description": "Fazer os ajustes necessários",
+      "taskFinish": "",
+      "steps": "backlog",
+      "id": 10,
+      "iduser": 1
+    },
+    {
+      "name": "RICHARD",
+      "category": "Angular, AdvPL",
+      "taskCreated": "2020-03-12",
+      "deliveryEstimated": "2020-03-19",
+      "taskFinish": "",
+      "steps": "progress",
+      "iduser": 1,
+      "id": 11
     }
   ]
 }

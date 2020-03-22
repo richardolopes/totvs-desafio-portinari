@@ -3,3 +3,20 @@
 </po-chart> -->
 <!-- FAZER UM GRAFICO COM AS TAREFAS ENTREGUES E BLA BLA BLA -->
 <!-- { category: 'Angular', value: 100 }, { category: 'React', value: 10 } -->
+
+<div class="po-wrapper">
+  <po-toolbar p-title="Desafio Portinari"></po-toolbar>
+
+  <po-menu [p-menus]="menus">
+    <div *p-menu-header-template class="po-p-2 po-font-title sample-menu-header-text-color text-white">
+      <p> Bem vindo, </p>
+      <p>
+        <b> John Doe </b>
+      </p>
+    </div>
+  </po-menu>
+
+  <po-page-default>
+    <router-outlet></router-outlet>
+  </po-page-default>
+</div>

@@ -17,4 +17,8 @@ export class HttpService {
   public post(endpoint: string, body: {}) {
     return this.http.post(this.URL + endpoint, body);
   }
+
+  public put(endpoint: string, body: {}) {
+    return this.http.put(this.URL + endpoint, body);
+  }
 }

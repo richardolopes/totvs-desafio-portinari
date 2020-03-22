@@ -1,0 +1,65 @@
+<po-switch name="switch" p-label-off="Tarefas Pendentes" p-label-on="Todas as Tarefas" p-label="Alterar visão" (p-change)="changeView()">
+</po-switch>
+
+<div class="po-row">
+  <po-button class="po-m-3 po-md-3" p-label="Criar tarefa" (p-click)="route.navigate(['/tasks/new'])">
+  </po-button>
+</div>
+
+
+
+<div *ngIf="listOrGrid; then table else list"></div>
+
+
+<ng-template #table>
+  <div class="col-container">
+    <!-- <po-page-dynamic-search (p-quick-search)="quickSearch($event)" p-title=" " (p-change-disclaimers)="clearSearch()"> -->
+      <po-table p-sort="true" [p-columns]="columnsDetails" p-hide-text-overflow="true" [p-items]="listTasksOpen"
+      [p-literals]="customLiterals">
+    </po-table>
+  <!-- </po-page-dynamic-search> -->
+
+  </div>
+</ng-template>
+
+<ng-template #list>
+  <div class="col-container">
+        <div class="col">
+          <p class="po-font-title po-text-center">Backlog</p>
+          <div *ngFor="let item of listTasksStep1" class="po-m-1">
+            <app-task-widget [task]="item"></app-task-widget>
+            </div>
+          </div>
+          <div class="col">
+            <p class="po-font-title po-text-center">Em andamento</p>
+            <div *ngFor="let item of listTasksStep2" class="po-m-1">
+              <app-task-widget [task]="item"></app-task-widget>
+            </div>
+          </div>
+          <div class="col">
+            <p class="po-font-title po-text-center">Concluída</p>
+            <div *ngFor="let item of listTasksStep3" class="po-m-1">
+              <app-task-widget [task]="item"></app-task-widget>
+            </div>
+        </div>
+      </div>
+    <!-- <div *ngFor="let item of listTasksStep2">
+      <app-task-widget [task]="item"></app-task-widget>
+		</div>
+    <div *ngFor="let item of listTasksStep3">
+      <app-task-widget [task]="item"></app-task-widget>
+    </div> -->
+    <br>
+  </ng-template>
+
+
+<po-modal #modal
+  [p-title]="titleModal"
+  [p-primary-action]="confirm"
+  [p-secondary-action]="close">
+
+  <po-dynamic-form #dynamicForm p-auto-focus="taskCreated" [p-fields]="fields">
+  </po-dynamic-form>
+
+
+</po-modal>

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { PoDynamicFormField, PoDynamicFormFieldChanged, PoDynamicFormValidation } from '@portinari/portinari-ui';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { PoDynamicFormField, PoNotificationService, PoDynamicFormComponent } from '@portinari/portinari-ui';
+import { TasksService } from '../../tasks.service';
 
 @Component({
   selector: 'app-new-task',
@@ -11,6 +12,9 @@ export class NewTaskComponent implements OnInit {
   year = this.date.getFullYear();
   month = (`00 ${(this.date.getMonth() + 1)}`).slice(-2);
   day = (`00 ${this.date.getDate()}`).slice(-2);
+
+  @ViewChild('dynamicForm', {static: true})
+  dynamicForm: PoDynamicFormComponent;
 
   fields: Array<PoDynamicFormField> = [
     {
@@ -66,11 +70,39 @@ export class NewTaskComponent implements OnInit {
     return '';
   }
 
-  sendTask(data) {
+  newTask() {
+    const data = this.dynamicForm.form.value;
+    let categories = '';
+    // tslint:disable-next-line: forin
+    if (typeof(data.category) === 'object') {
+      for (var i = 0; i < (data.category.length - 1); i++) {
+        categories += data.category[i] + ', ';
+      }
+      categories += data.category[i];
+      data.category = categories;
+    }
 
+    data.taskFinish = '';
+    data.steps = 'backlog';
+    data.iduser = 1;
+
+    this.poNotification.information('Enviando informações...');
+
+    this.serviceTask.saveTask(data).subscribe(
+      () => {
+        this.poNotification.success('Tarefa criada com sucesso!');
+        this.dynamicForm.form.reset();
+      },
+      () => {
+        this.poNotification.error('Não foi possível criar a tarefa');
+      }
+    );
   }
 
-  constructor() { }
+  constructor(
+    private poNotification: PoNotificationService,
+    private serviceTask: TasksService
+    ) { }
 
   ngOnInit() { }
 

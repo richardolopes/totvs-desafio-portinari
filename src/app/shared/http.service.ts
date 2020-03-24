@@ -21,4 +21,8 @@ export class HttpService {
   public put(endpoint: string, body: {}) {
     return this.http.put(this.URL + endpoint, body);
   }
+
+  public delete(endpoint: string) {
+    return this.http.delete(this.URL + endpoint);
+  }
 }

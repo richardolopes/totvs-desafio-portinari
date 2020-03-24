@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { TasksService } from '../tasks.service';
 // tslint:disable-next-line: max-line-length
-import { PoTableColumn, PoTableLiterals, PoNotificationService, PoModalComponent, PoDynamicFormComponent, PoDynamicFormField, PoModalAction } from '@portinari/portinari-ui';
+import { PoTableColumn, PoTableLiterals, PoNotificationService, PoModalComponent, PoModalAction, PoDatepickerComponent, PoDatepickerIsoFormat } from '@portinari/portinari-ui';
 import { Router } from '@angular/router';
 import { Task } from '../task.model';
 
@@ -25,27 +25,14 @@ export class PendenciesComponent {
   public listTasksStep3 = [];
 
   public rowTaskModal: Task;
+  public minDate: string;
+
+  public dateFinish: any;
 
   public titleModal = 'Mover Tarefa';
 
   @ViewChild('modal', { static: true })
   modalTask: PoModalComponent;
-
-  @ViewChild('dynamicForm', {static: true})
-  dynamicForm: PoDynamicFormComponent;
-
-  fields: Array<PoDynamicFormField> = [
-    {
-      property: 'taskFinish',
-      label: 'Data de entrega',
-      type: 'date',
-      gridColumns: 5,
-      optional: false,
-      gridSmColumns: 5,
-      minValue: '',
-      errorMessage: 'A data não pode ser antes da criação da tarefa.'
-    },
-  ];
 
   public readonly columnsDetails: Array<PoTableColumn> = [
     { property: 'name', label: 'Tarefa' },
@@ -97,14 +84,9 @@ export class PendenciesComponent {
 
   confirm: PoModalAction = {
     action: () => {
-      if (this.dynamicForm.form.value.taskFinish) {
-        this.rowTaskModal.taskFinish = this.dynamicForm.form.value.taskFinish;
-        this.rowTaskModal.steps = 'finish';
-        this.updateTask(this.rowTaskModal);
-        this.modalTask.close();
-      } else {
-        this.poNotification.error('Digite uma data!');
-      }
+      this.rowTaskModal = this.serviceTasks.finishTask(this.rowTaskModal, this.dateFinish);
+      this.updateTask(this.rowTaskModal);
+      this.modalTask.close();
     },
     label: 'Finalizar',
   };
@@ -123,8 +105,8 @@ export class PendenciesComponent {
       this.updateTask(row);
     } else {
       this.rowTaskModal = row;
-      this.fields[0].minValue = row.taskCreated;
       this.modalTask.open();
+      this.minDate = row.taskCreated;
     }
   }
 
@@ -166,5 +148,9 @@ export class PendenciesComponent {
         if (!this.listTasks[i].taskFinish) { this.listTasksOpen.push(this.listTasks[i]); }
       }
     });
+  }
+
+  datePicker(event: Date) {
+    this.dateFinish = this.serviceTasks.dateToString(event);
   }
 }

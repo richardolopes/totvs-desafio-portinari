@@ -58,8 +58,13 @@
   [p-primary-action]="confirm"
   [p-secondary-action]="close">
 
-  <po-dynamic-form #dynamicForm p-auto-focus="taskCreated" [p-fields]="fields">
-  </po-dynamic-form>
-
+  <div class="po-row">
+    <po-datepicker
+      name="datepicker"
+      p-label="Data de finalização"
+      (p-change)="datePicker($event)"
+      [p-min-date]="minDate">
+    </po-datepicker>
+  </div>
 
 </po-modal>

@@ -1,0 +1,118 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Richard Lopes",
+      "email": "r@gmail",
+      "password": "1234",
+      "imagePath": "assets/img/users/default.png"
+    },
+    {
+      "login": "a@a",
+      "password": "1",
+      "rememberUser": false,
+      "id": 2
+    }
+  ],
+  "tasks": [
+    {
+      "id": 3,
+      "iduser": 1,
+      "category": "Angular",
+      "name": "Lista de tarefas",
+      "description": "Preciso conseguir buscar uma tarefa pelo nome, categoria ou data limite. Preciso conseguir visualizar o nome da tarefa. Preciso conseguir visualizar a data limite da tarefa. Preciso conseguir visualizar se a tarefa está atrasada ou não. Preciso conseguir visualizar a categoria da tarefa As tarefas que são para hoje ou estão atrasadas, devem ser exibidas com destaque das demais tarefas. Bônus: Caso eu tenha mais que 10 tarefas pendentes, mostrar apenas as 10 mais antigas e exibir uma opção de “Carregar Mais”, para evitar sobrecarga no servidor. (Paginação)",
+      "taskCreated": "2020-03-09",
+      "taskFinish": "",
+      "deliveryEstimated": "2020-03-09",
+      "steps": "backlog"
+    },
+    {
+      "id": 5,
+      "iduser": 1,
+      "category": "Angular",
+      "name": "Lista de tarefas concluidas",
+      "description": "O histórico deve ter as mesmas caracterísitcas que a lista de tarefas pendentes (busca, filtro, dados), com os seguintes complementos: Devo conseguir visualizar a data prevista e a data em que a tarefa foi realizada. A lista não deve mostrar tarefas pendentes",
+      "taskCreated": "2020-03-10",
+      "taskFinish": "",
+      "deliveryEstimated": "2020-03-30",
+      "steps": "backlog"
+    },
+    {
+      "id": 6,
+      "iduser": 1,
+      "category": "Angular",
+      "name": "Ajustar lista",
+      "description": "Lista ou widget?",
+      "taskCreated": "2020-03-10",
+      "taskFinish": "",
+      "deliveryEstimated": "2020-03-30",
+      "steps": "progress"
+    },
+    {
+      "id": 7,
+      "iduser": 1,
+      "category": "Angular",
+      "name": "Excluir tarefas",
+      "description": "Somente tarefas concluídas podem ser excluídas, e deve apresentar uma confirmação ao excluir, questionando se tenho certeza desta ação.",
+      "taskCreated": "2020-03-10",
+      "taskFinish": "",
+      "deliveryEstimated": "2020-03-30",
+      "steps": "progress"
+    },
+    {
+      "id": 8,
+      "iduser": 1,
+      "category": "Angular",
+      "name": "Alterar tarefas",
+      "description": "quero poder alterar uma tarefa pendente, alterando seu prazo, categoria ou nome. Posso alterar apenas as tarefas pendentes. Ao alterar o prazo, não deve ser permitido utilizar uma data no passado.",
+      "taskCreated": "2020-03-10",
+      "taskFinish": "",
+      "deliveryEstimated": "2020-03-30",
+      "steps": "progress"
+    },
+    {
+      "id": 9,
+      "iduser": 1,
+      "category": "Angular",
+      "name": "Atrasada",
+      "description": "acabou",
+      "taskCreated": "2020-03-10",
+      "taskFinish": "",
+      "deliveryEstimated": "2020-03-09",
+      "steps": "progress"
+    },
+    {
+      "name": "TechFin",
+      "category": "AdvPL, ",
+      "taskCreated": "2020-03-19",
+      "deliveryEstimated": "2020-03-24",
+      "description": "Fazer os ajustes necessários",
+      "taskFinish": "",
+      "steps": "backlog",
+      "id": 10,
+      "iduser": 1
+    },
+    {
+      "name": "RICHARD",
+      "category": "Angular, AdvPL",
+      "taskCreated": "2020-03-12",
+      "deliveryEstimated": "2020-03-19",
+      "taskFinish": "",
+      "steps": "progress",
+      "iduser": 1,
+      "id": 11
+    },
+    {
+      "name": "AOE",
+      "category": "Matemática",
+      "taskCreated": "2020-03-23",
+      "deliveryEstimated": "2020-03-24",
+      "description": "JOGAR AOE ATÉ CONSEGUIR DESTRUIR TODO MUNDO",
+      "taskFinish": "2020-03-30",
+      "steps": "finish",
+      "iduser": 1,
+      "id": 12,
+      "status": "normal"
+    }
+  ]
+}

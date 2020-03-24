@@ -1,139 +1,48 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "name": "Richard Lopes",
-      "email": "r@gmail",
-      "password": "1234",
-      "imagePath": "assets/img/users/default.png"
-    },
-    {
-      "login": "a@a",
-      "password": "1",
-      "rememberUser": false,
-      "id": 2
-    }
-  ],
   "tasks": [
     {
-      "id": 1,
-      "iduser": 1,
-      "category": "Angular",
-      "name": "Desafio Portinari",
-      "description": "Entregar o projeto do Portinari",
-      "taskCreated": "2020-03-09",
-      "taskFinish": "2020-03-31",
-      "deliveryEstimated": "2020-03-30",
-      "steps": "finish"
-    },
-    {
-      "id": 2,
-      "iduser": 1,
-      "category": "Angular",
-      "name": "Página de login",
-      "description": "Validação do formato de e-mail. Senha não deve ficar visível enquanto digitada. Deve validar o acesso através da API fake.",
-      "taskCreated": "2020-03-09",
-      "taskFinish": "2020-03-11",
-      "deliveryEstimated": "2020-03-17",
-      "steps": "finish"
-    },
-    {
-      "id": 3,
-      "iduser": 1,
-      "category": "Angular",
-      "name": "Lista de tarefas",
-      "description": "Preciso conseguir buscar uma tarefa pelo nome, categoria ou data limite. Preciso conseguir visualizar o nome da tarefa. Preciso conseguir visualizar a data limite da tarefa. Preciso conseguir visualizar se a tarefa está atrasada ou não. Preciso conseguir visualizar a categoria da tarefa As tarefas que são para hoje ou estão atrasadas, devem ser exibidas com destaque das demais tarefas. Bônus: Caso eu tenha mais que 10 tarefas pendentes, mostrar apenas as 10 mais antigas e exibir uma opção de “Carregar Mais”, para evitar sobrecarga no servidor. (Paginação)",
-      "taskCreated": "2020-03-09",
-      "taskFinish": "",
-      "deliveryEstimated": "2020-03-09",
-      "steps": "backlog"
-    },
-    {
-      "id": 4,
-      "iduser": 1,
-      "category": "Angular",
-      "name": "Concluir uma tarefa",
-      "description": "Ao marcar uma tarefa pendente como concluída, ele deve sumir da minha lista de tarefas pendentes. Eu posso concluir uma tarefa no passado ou no futuro, mas esta informação ser  mantida como histórico.",
-      "taskCreated": "2020-03-10",
-      "taskFinish": "2020-03-30",
-      "deliveryEstimated": "2020-03-30",
-      "steps": "finish"
-    },
-    {
-      "id": 5,
-      "iduser": 1,
-      "category": "Angular",
-      "name": "Lista de tarefas concluidas",
-      "description": "O histórico deve ter as mesmas caracterísitcas que a lista de tarefas pendentes (busca, filtro, dados), com os seguintes complementos: Devo conseguir visualizar a data prevista e a data em que a tarefa foi realizada. A lista não deve mostrar tarefas pendentes",
-      "taskCreated": "2020-03-10",
-      "taskFinish": "",
-      "deliveryEstimated": "2020-03-30",
-      "steps": "backlog"
-    },
-    {
-      "id": 6,
-      "iduser": 1,
-      "category": "Angular",
-      "name": "Ajustar lista",
-      "description": "Lista ou widget?",
-      "taskCreated": "2020-03-10",
-      "taskFinish": "",
-      "deliveryEstimated": "2020-03-30",
-      "steps": "progress"
-    },
-    {
-      "id": 7,
-      "iduser": 1,
-      "category": "Angular",
-      "name": "Excluir tarefas",
-      "description": "Somente tarefas concluídas podem ser excluídas, e deve apresentar uma confirmação ao excluir, questionando se tenho certeza desta ação.",
-      "taskCreated": "2020-03-10",
-      "taskFinish": "",
-      "deliveryEstimated": "2020-03-30",
-      "steps": "progress"
-    },
-    {
-      "id": 8,
-      "iduser": 1,
-      "category": "Angular",
-      "name": "Alterar tarefas",
-      "description": "quero poder alterar uma tarefa pendente, alterando seu prazo, categoria ou nome. Posso alterar apenas as tarefas pendentes. Ao alterar o prazo, não deve ser permitido utilizar uma data no passado.",
-      "taskCreated": "2020-03-10",
-      "taskFinish": "",
-      "deliveryEstimated": "2020-03-30",
-      "steps": "progress"
-    },
-    {
-      "id": 9,
-      "iduser": 1,
-      "category": "Angular",
-      "name": "Atrasada",
-      "description": "acabou",
-      "taskCreated": "2020-03-10",
-      "taskFinish": "",
-      "deliveryEstimated": "2020-03-09",
-      "steps": "progress"
-    },
-    {
       "name": "TechFin",
-      "category": "AdvPL, ",
-      "taskCreated": "2020-03-19",
-      "deliveryEstimated": "2020-03-24",
-      "description": "Fazer os ajustes necessários",
+      "category": "AdvPL",
+      "taskCreated": "2020-03-13",
+      "deliveryEstimated": "2020-03-31",
+      "description": "não sei o que colocar aqui.",
       "taskFinish": "",
       "steps": "backlog",
-      "id": 10,
-      "iduser": 1
+      "iduser": 1,
+      "id": 1
     },
     {
-      "name": "RICHARD",
-      "category": "Angular, AdvPL",
-      "taskCreated": "2020-03-12",
-      "deliveryEstimated": "2020-03-19",
+      "name": "Automação FINA070",
+      "category": "AdvPL",
+      "taskCreated": "2020-03-20",
+      "deliveryEstimated": "2020-03-24",
+      "description": "Incremento de 5%.",
       "taskFinish": "",
-      "steps": "progress",
+      "steps": "backlog",
       "iduser": 1,
-      "id": 11
+      "id": 2
+    },
+    {
+      "name": "Barra de busca",
+      "category": "Angular",
+      "taskCreated": "2020-03-24",
+      "deliveryEstimated": "2020-03-29",
+      "description": "Barra de busca de tarefas pelo Nome, Categoria ou Data Limite.",
+      "taskFinish": "",
+      "steps": "backlog",
+      "iduser": 1,
+      "id": 3
+    },
+    {
+      "name": "Tarefas atrasadas",
+      "category": "Angular",
+      "taskCreated": "2020-03-24",
+      "deliveryEstimated": "2020-03-29",
+      "description": "As tarefas que são para hoje ou estão atrasadas, devem ser exibidas com destaque das demais tarefas.",
+      "taskFinish": "",
+      "steps": "backlog",
+      "iduser": 1,
+      "id": 4
     }
   ]
 }

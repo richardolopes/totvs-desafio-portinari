@@ -53,6 +53,15 @@ export class TasksService {
     return tasks;
   }
 
+  finishTask(task: Task, dateFinish: string) {
+    task.steps = 'finish';
+    task.taskFinish = dateFinish;
+    if (task.deliveryEstimated === dateFinish) { task.status = 'day'; }
+    if (task.deliveryEstimated > dateFinish) { task.status = 'normal'; }
+    if (task.deliveryEstimated < dateFinish) { task.status = 'delayed'; }
+    return task;
+  }
+
   toDate(dateStr: string) {
     if (dateStr) {
       const parts = dateStr.split('-');
@@ -62,11 +71,21 @@ export class TasksService {
     }
   }
 
+  dateToString(date: Date) {
+    const newDate = date.toString();
+    const parts = newDate.split('/');
+    return `${parts[2]}-${parts[1]}-${parts[0]}`;
+  }
+
   updateTask(data: Task) {
     return this.http.put(`tasks/${data.id}`, (data));
   }
 
   listTasksFinish() {
     return this.http.get(`tasks?steps=finish`);
+  }
+
+  delete(id: number) {
+    return this.http.delete(`tasks/${id}`);
   }
 }

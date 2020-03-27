@@ -1,3 +1,4 @@
+import { LoginService } from './../login/login.service';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanActivate } from '@angular/router';
 
@@ -5,15 +6,10 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanActivate } from
   providedIn: 'root'
 })
 export class GuardianService implements CanActivate {
-
-  constructor(private route: Router) { }
+  constructor(private route: Router, private login: LoginService) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    const token = localStorage.getItem('token');
-
-    if (token) { return true; }
-
-    this.route.navigate(['login']);
-    return false;
+    return this.login.validToken();
   }
 }
+

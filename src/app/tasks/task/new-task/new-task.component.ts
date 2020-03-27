@@ -22,7 +22,7 @@ export class NewTaskComponent implements OnInit {
       divider: 'Detalhes da Tarefa',
       label: 'Nome',
       required: true,
-      minLength: 4,
+      minLength: 1,
       maxLength: 50,
       gridColumns: 3,
       gridSmColumns: 3
@@ -44,6 +44,7 @@ export class NewTaskComponent implements OnInit {
       required: true,
       gridColumns: 3,
       gridSmColumns: 3,
+      maxValue: `${this.year}-${this.month}-${this.day}`,
       errorMessage: 'Data incorreta.'
     },
     {

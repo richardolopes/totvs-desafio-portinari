@@ -10,11 +10,15 @@ import { Router } from '@angular/router';
   styleUrls: []
 })
 export class LoginComponent {
+  // tslint:disable-next-line: max-line-length
+  public loginPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
   constructor(private loginService: LoginService, private router: Router, private poNotification: PoNotificationService) { }
 
   login(data: PoPageLogin) {
     this.loginService.auth(data.login, data.password).subscribe(
       res => {
+        // tslint:disable-next-line: no-string-literal
         localStorage.setItem('token', res['access_token']);
         this.router.navigate(['/']);
       },

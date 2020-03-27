@@ -1,2 +1,6 @@
-<po-page-login p-logo="https://pngimage.net/wp-content/uploads/2018/05/fantasminha-png-1.png"
-    (p-login-submit)="login($event)"></po-page-login>
+<po-page-login
+  p-logo="https://pngimage.net/wp-content/uploads/2018/05/fantasminha-png-1.png"
+  p-hide-remember-user="true"
+  (p-login-submit)="login($event)"
+  [p-login-pattern]="loginPattern">
+</po-page-login>

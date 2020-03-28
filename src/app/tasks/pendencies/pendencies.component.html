@@ -6,10 +6,7 @@
   </po-button>
 </div>
 
-
-
 <div *ngIf="listOrGrid; then table else list"></div>
-
 
 <ng-template #table>
   <div class="col-container">
@@ -18,39 +15,32 @@
       [p-literals]="customLiterals">
     </po-table>
   <!-- </po-page-dynamic-search> -->
-
   </div>
 </ng-template>
 
 <ng-template #list>
   <div class="col-container">
-        <div class="col">
-          <p class="po-font-title po-text-center">Backlog</p>
-          <div *ngFor="let item of listTasksStep1" class="po-m-1">
-            <app-task-widget [task]="item"></app-task-widget>
-            </div>
-          </div>
-          <div class="col">
-            <p class="po-font-title po-text-center">Em andamento</p>
-            <div *ngFor="let item of listTasksStep2" class="po-m-1">
-              <app-task-widget [task]="item"></app-task-widget>
-            </div>
-          </div>
-          <div class="col">
-            <p class="po-font-title po-text-center">Concluída</p>
-            <div *ngFor="let item of listTasksStep3" class="po-m-1">
-              <app-task-widget [task]="item"></app-task-widget>
-            </div>
+    <div class="col">
+      <p class="po-font-title po-text-center">Backlog</p>
+      <div *ngFor="let item of listTasksStep1" class="po-m-1">
+        <app-task-widget [task]="item"></app-task-widget>
         </div>
       </div>
-    <!-- <div *ngFor="let item of listTasksStep2">
-      <app-task-widget [task]="item"></app-task-widget>
-		</div>
-    <div *ngFor="let item of listTasksStep3">
-      <app-task-widget [task]="item"></app-task-widget>
-    </div> -->
-    <br>
-  </ng-template>
+      <div class="col">
+        <p class="po-font-title po-text-center">Em andamento</p>
+        <div *ngFor="let item of listTasksStep2" class="po-m-1">
+          <app-task-widget [task]="item"></app-task-widget>
+        </div>
+      </div>
+      <div class="col">
+        <p class="po-font-title po-text-center">Concluída</p>
+        <div *ngFor="let item of listTasksStep3" class="po-m-1">
+          <app-task-widget [task]="item"></app-task-widget>
+        </div>
+    </div>
+  </div>
+  <br>
+</ng-template>
 
 
 <po-modal #modal
@@ -65,6 +55,18 @@
       (p-change)="datePicker($event)"
       [p-min-date]="minDate">
     </po-datepicker>
+  </div>
+
+</po-modal>
+
+<po-modal #editTask
+  [p-title]="titleEdit"
+  [p-primary-action]="confirmEdit"
+  [p-secondary-action]="closeEdit">
+
+  <div class="po-row">
+    <po-dynamic-form #dynamicForm p-auto-focus="name" [p-fields]="fields">
+    </po-dynamic-form>
   </div>
 
 </po-modal>

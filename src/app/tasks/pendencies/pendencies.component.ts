@@ -1,7 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Injectable } from '@angular/core';
 import { TasksService } from '../tasks.service';
 // tslint:disable-next-line: max-line-length
-import { PoTableColumn, PoTableLiterals, PoNotificationService, PoModalComponent, PoModalAction, PoDatepickerComponent, PoDatepickerIsoFormat } from '@portinari/portinari-ui';
+import { PoTableColumn, PoTableLiterals, PoNotificationService, PoModalComponent, PoModalAction, PoDatepickerComponent, PoDatepickerIsoFormat, PoDynamicFormField } from '@portinari/portinari-ui';
 import { Router } from '@angular/router';
 import { Task } from '../task.model';
 
@@ -10,6 +10,9 @@ import { Task } from '../task.model';
   selector: 'app-pendencies',
   templateUrl: './pendencies.component.html',
   styleUrls: ['./pendencies.component.css']
+})
+@Injectable({
+  providedIn: 'root'
 })
 export class PendenciesComponent {
 
@@ -30,9 +33,14 @@ export class PendenciesComponent {
   public dateFinish: any;
 
   public titleModal = 'Mover Tarefa';
+  public titleEdit = 'Editar Tarefa';
+
 
   @ViewChild('modal', { static: true })
   modalTask: PoModalComponent;
+
+  @ViewChild('editTask', { static: true })
+  editModal: PoModalComponent;
 
   public readonly columnsDetails: Array<PoTableColumn> = [
     { property: 'name', label: 'Tarefa' },
@@ -49,8 +57,8 @@ export class PendenciesComponent {
     { property: 'category', label: 'Categorias', type: 'string', width: '30%' },
     {
       property: 'steps', type: 'label', width: '8%', labels: [
-        { value: 'backlog', color: 'danger', label: 'Backlog' },
-        { value: 'progress', color: 'warning', label: 'Andamento' }
+        { value: 'backlog', label: 'Backlog' },
+        { value: 'progress', label: 'Andamento' }
       ]
     },
     {property: 'steps', label: 'Ações', type: 'icon', width: '100px', icons:
@@ -91,12 +99,80 @@ export class PendenciesComponent {
     label: 'Finalizar',
   };
 
+  closeEdit: PoModalAction = {
+    action: () => {
+      this.editModal.close();
+    },
+    label: 'Fechar',
+    danger: true
+  };
+
+  confirmEdit: PoModalAction = {
+    action: () => {
+      this.rowTaskModal = this.serviceTasks.finishTask(this.rowTaskModal, this.dateFinish);
+      this.updateTask(this.rowTaskModal);
+      this.modalTask.close();
+    },
+    label: 'Finalizar',
+  };
+
+  fields: Array<PoDynamicFormField> = [
+    {
+      property: 'name',
+      divider: 'Detalhes da Tarefa',
+      label: 'Nome',
+      required: true,
+      minLength: 1,
+      maxLength: 50,
+      gridColumns: 3,
+      gridSmColumns: 3
+    },
+    {
+      property: 'category',
+      label: 'Categoria',
+      gridColumns: 3,
+      gridSmColumns: 3,
+      optional: true,
+      options: ['Angular', 'AdvPL', 'Matemática', 'Português'],
+      optionsMulti: true,
+    },
+    {
+      property: 'taskCreated',
+      divider: 'Datas da tarefa',
+      label: 'Data de criação',
+      type: 'date',
+      required: true,
+      gridColumns: 3,
+      gridSmColumns: 3,
+      maxValue: ``,
+      errorMessage: 'Data incorreta.'
+    },
+    {
+      property: 'deliveryEstimated',
+      label: 'Data estimada de entrega',
+      type: 'date',
+      gridColumns: 3,
+      gridSmColumns: 3,
+      minValue: ``,
+      errorMessage: 'A data não pode ser no passado.'
+    },
+    {
+      property: 'description',
+      divider: 'Outros',
+      label: 'Descrição',
+      gridColumns: 6,
+      gridSmColumns: 6,
+      optional: true,
+      rows: 5
+    },
+  ];
+
   changeView() {
     this.listOrGrid = !this.listOrGrid;
   }
 
   editTask(row: Task) {
-    console.log(row);
+    this.editModal.open();
   }
 
   nextStep(row: Task) {

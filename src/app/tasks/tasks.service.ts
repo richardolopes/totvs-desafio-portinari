@@ -1,3 +1,4 @@
+import { LoginService } from './../login/login.service';
 import { HttpService } from "../shared/http.service";
 import { Injectable } from "@angular/core";
 import { Task } from './task.model';
@@ -7,24 +8,19 @@ import { Task } from './task.model';
 })
 export class TasksService {
   constructor(
-    private http: HttpService
+    private http: HttpService,
+    private login: LoginService
   ) { }
 
-  // listTasksOpens() {
-  //   return this.http.get("tasks?taskFinish=");
-  // }
+  public user = this.login.getUser();
 
   listTasks() {
-    return this.http.get('tasks');
+    return this.http.get(`tasks?email=${this.user}&_sort=deliveryEstimated&_order=asc`);
   }
 
   saveTask(data: Task) {
-    console.log('POST Task');
+    data.email = this.user;
     return this.http.post('tasks', data);
-  }
-
-  taskByUser(id: number) {
-    return this.http.get(`tasks?iduser=${id}`);
   }
 
   definedStatus(tasks: any) {
@@ -41,7 +37,7 @@ export class TasksService {
         if (tasks[i].deliveryEstimated === `${year}-${month}-${day}`) {
           tasks[i].status = 'day';
         } else {
-          if (tasks[i].deliveryEstimated > tasks[i].taskCreated) {
+          if (tasks[i].deliveryEstimated > `${year}-${month}-${day}`) {
             tasks[i].status = 'normal';
           } else {
             tasks[i].status = 'delayed';
@@ -67,7 +63,7 @@ export class TasksService {
       const parts = dateStr.split('-');
       return `${parts[2]}/${parts[1]}/${parts[0]}`;
     } else {
-      return 'Data não definida';
+      return '';
     }
   }
 
@@ -82,7 +78,7 @@ export class TasksService {
   }
 
   listTasksFinish() {
-    return this.http.get(`tasks?steps=finish`);
+    return this.http.get(`tasks?steps=finish&email=${this.user}`);
   }
 
   delete(id: number) {

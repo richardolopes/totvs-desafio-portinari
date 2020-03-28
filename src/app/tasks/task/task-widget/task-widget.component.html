@@ -1,0 +1,16 @@
+  <!-- p-background="https://i.pinimg.com/236x/ee/c6/ce/eec6cea4a6c72ebb34094203a03a3857.jpg" -->
+<po-widget
+  class="po-mt-2"
+  p-height="200"
+  p-primary="true"
+  [p-primary-label]="finish"
+  p-secondary-label="Visualizar"
+  [p-title]="task.taskCreated"
+  (p-primary-action)="finishTask(task)"
+  (p-secondary-action)="viewTask(task)">
+
+  <div class="po-font-subtitle po-text-center">{{ task.name }}</div>
+  <div class="po-text-center">Data estimada de entrega: {{ task.deliveryEstimated | date : 'dd/MM/yyyy' }}</div>
+</po-widget>
+
+<app-task-modal #detailsTaskModal></app-task-modal>

@@ -1,0 +1,68 @@
+<po-modal #detailsTaskModal
+  p-title="Detalhes da Tarefa"
+  [p-primary-action]="closeModal">
+  <div class="po-row po-mb-4">
+    <po-divider class="po-md-12" p-label="Status"></po-divider>
+
+    <po-tag
+      class="po-md-4"
+      p-icon
+      p-label="Etapa"
+      [p-value]="stepsValue">
+    </po-tag>
+
+    <po-tag
+      class="po-md-4"
+      p-label="Status"
+      [p-value]="statusValue">
+    </po-tag>
+  </div>
+
+  <div class="po-row po-mb-4">
+    <po-divider class="po-md-12" p-label="Informações da tarefa"></po-divider>
+
+    <po-info
+      class="po-md-8 po-mb-md-2"
+      p-label="Name"
+      [p-value]="name">
+    </po-info>
+
+
+    <po-info
+      class="po-md-4"
+      p-label="Categoria"
+      [p-value]="category">
+    </po-info>
+
+    <po-info
+      class="po-md-4 po-mb-md-2"
+      p-label="Data comprometida"
+      [p-value]="delivery">
+    </po-info>
+
+    <po-info
+      class="po-md-4 po-mb-md-2"
+      p-label="Data finalização"
+      [p-value]="taskFinish">
+    </po-info>
+
+    <po-info
+      class="po-md-4 po-mb-md-2"
+      p-label="Data de criação"
+      [p-value]="created">
+    </po-info>
+
+
+    <po-info
+      class="po-md-12 po-mb-md-2"
+      p-label="Descrição"
+      [p-value]="description">
+    </po-info>
+  </div>
+
+  <div *ngIf="taskFinish">
+    <po-button p-label="Excluir Tarefa"
+    (p-click)="deleteTask()">
+    </po-button>
+  </div>
+</po-modal>

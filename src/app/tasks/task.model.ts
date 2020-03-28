@@ -3,6 +3,7 @@ class Task {
     public id: number,
     public idcategory: number,
     public name: string,
+    public email: string,
     public taskCreated: string,
     public taskFinish: string,
     public deliveryEstimated: string,

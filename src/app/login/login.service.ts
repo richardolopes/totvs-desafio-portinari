@@ -31,8 +31,4 @@ export class LoginService {
     if (this.validToken()) { return this.user.email; }
     return 'Não autorizado!';
   }
-
-  returnUser() {
-    return this.user;
-  }
 }

@@ -1,3 +1,4 @@
+import { NotfoundComponent } from './notfound/notfound.component';
 import { GuardianService } from './guardian/guardian.service';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -27,6 +28,7 @@ const routes: Routes = [
       },
     ]
   },
+  { path: '**', component: NotfoundComponent },
 ];
 
 @NgModule({

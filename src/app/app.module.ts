@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { PoModule, PoDialogModule } from '@portinari/portinari-ui';
 import { AppRoutingModule } from './app.routing.module';
-import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
 import { PoAvatarModule } from '@portinari/portinari-ui';
 import { TaskComponent } from './tasks/task/task-widget/task-widget.component';
 import { HistoricComponent } from './tasks/historic/historic.component';
@@ -14,17 +14,19 @@ import { NewTaskComponent } from './tasks/task/new-task/new-task.component';
 import { LoginModule } from './login/login.module';
 import { TaskModalComponent } from './tasks/task/task-modal/task-modal.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    HeaderComponent,
     TaskComponent,
     HistoricComponent,
     PendenciesComponent,
     NewTaskComponent,
     TaskModalComponent,
     NotfoundComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
     PoDialogModule,
     PoPageDynamicTableModule,
     LoginModule,
-    PoPageDynamicSearchModule
+    PoPageDynamicSearchModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

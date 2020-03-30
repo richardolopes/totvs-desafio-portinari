@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild, Injectable } from '@angular/core';
 import { PoTableColumn, PoTableLiterals, PoNotificationService, PoModalComponent, PoModalAction } from '@portinari/portinari-ui';
 import { Task } from '../task.model';
 import { TasksService } from '../tasks.service';
@@ -8,6 +8,9 @@ import { TaskModalComponent } from '../task/task-modal/task-modal.component';
   selector: 'app-historic',
   templateUrl: './historic.component.html',
   styleUrls: []
+})
+@Injectable({
+  providedIn: 'root'
 })
 export class HistoricComponent {
   @ViewChild('detailsTaskModal', { static: false })

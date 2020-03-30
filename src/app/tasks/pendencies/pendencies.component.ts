@@ -1,7 +1,7 @@
 import { Component, ViewChild, Injectable } from '@angular/core';
 import { TasksService } from '../tasks.service';
 // tslint:disable-next-line: max-line-length
-import { PoTableColumn, PoTableLiterals, PoNotificationService, PoModalComponent, PoModalAction, PoDatepickerComponent, PoDatepickerIsoFormat, PoDynamicFormField } from '@portinari/portinari-ui';
+import { PoTableColumn, PoTableLiterals, PoNotificationService, PoModalComponent, PoModalAction, PoDatepickerComponent, PoDatepickerIsoFormat, PoDynamicFormField, PoDynamicFormComponent, PoDynamicFormLoad } from '@portinari/portinari-ui';
 import { Router } from '@angular/router';
 import { Task } from '../task.model';
 
@@ -34,6 +34,11 @@ export class PendenciesComponent {
 
   public titleModal = 'Mover Tarefa';
   public titleEdit = 'Editar Tarefa';
+
+  // modal de editar tarefa
+  public modalEditDate: string;
+  public modalEditCategory: string;
+  public modalEditTask: string;
 
 
   @ViewChild('modal', { static: true })
@@ -116,62 +121,14 @@ export class PendenciesComponent {
     label: 'Finalizar',
   };
 
-  fields: Array<PoDynamicFormField> = [
-    {
-      property: 'name',
-      divider: 'Detalhes da Tarefa',
-      label: 'Nome',
-      required: true,
-      minLength: 1,
-      maxLength: 50,
-      gridColumns: 3,
-      gridSmColumns: 3
-    },
-    {
-      property: 'category',
-      label: 'Categoria',
-      gridColumns: 3,
-      gridSmColumns: 3,
-      optional: true,
-      options: ['Angular', 'AdvPL', 'Matemática', 'Português'],
-      optionsMulti: true,
-    },
-    {
-      property: 'taskCreated',
-      divider: 'Datas da tarefa',
-      label: 'Data de criação',
-      type: 'date',
-      required: true,
-      gridColumns: 3,
-      gridSmColumns: 3,
-      maxValue: ``,
-      errorMessage: 'Data incorreta.'
-    },
-    {
-      property: 'deliveryEstimated',
-      label: 'Data estimada de entrega',
-      type: 'date',
-      gridColumns: 3,
-      gridSmColumns: 3,
-      minValue: ``,
-      errorMessage: 'A data não pode ser no passado.'
-    },
-    {
-      property: 'description',
-      divider: 'Outros',
-      label: 'Descrição',
-      gridColumns: 6,
-      gridSmColumns: 6,
-      optional: true,
-      rows: 5
-    },
-  ];
-
   changeView() {
     this.listOrGrid = !this.listOrGrid;
   }
 
   editTask(row: Task) {
+    this.modalEditCategory = row.category;
+    // this.modalEditDate = row.deliveryEstimated;
+    this.modalEditTask = row.name;
     this.editModal.open();
   }
 

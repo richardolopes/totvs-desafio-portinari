@@ -31,7 +31,7 @@ export class TaskComponent implements OnInit {
 
   titleFinishTask: string;
   itemsDetails: any;
-  finish = 'Concluir';
+  finish = 'Mover para: Em andamento';
 
   description: string;
   created: string;
@@ -44,6 +44,7 @@ export class TaskComponent implements OnInit {
   stepsValue: string;
   stepsType: string;
   deadline: string;
+  titleWidget: string;
 
   actionOptions: Array<string>;
   literalsAlert: PoDialogAlertLiterals;
@@ -57,9 +58,8 @@ export class TaskComponent implements OnInit {
   };
 
   ngOnInit() {
-    if (this.task.taskFinish) {
-      this.finish = 'Excluir';
-    }
+    if (this.task.taskFinish) { this.finish = 'Excluir Tarefa'; }
+    if (this.task.steps === 'progress') { this.finish = 'Mover para: Finalizar'; }
     this.stepsValue = this.task.steps;
     this.name = this.task.name;
     this.delivery = this.serviceTask.toDate(this.task.deliveryEstimated);
@@ -68,6 +68,7 @@ export class TaskComponent implements OnInit {
     this.taskFinish = this.serviceTask.toDate(this.task.taskFinish);
     this.category = this.task.category;
     this.deadline = this.task.status;
+    this.titleWidget = 'Data de criação: ' + this.serviceTask.toDate(this.task.taskCreated);
   }
 
   viewTask(task: Task) {

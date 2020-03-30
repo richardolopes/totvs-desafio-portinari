@@ -65,8 +65,27 @@
   [p-secondary-action]="closeEdit">
 
   <div class="po-row">
-    <po-dynamic-form #dynamicForm p-auto-focus="name" [p-fields]="fields">
-    </po-dynamic-form>
-  </div>
+    <!-- <po-datepicker
+      class="po-lg-3"
+      name="datepicker"
+      p-label="Prazo"
+      [(ngModel)]="modalEditDate"
+      [p-min-date]="serviceTasks.getDay()">
+    </po-datepicker>
 
+    <po-select
+      class="po-lg-3"
+      name="po-categoria"
+      p-label="Categoria"
+      [(ngModel)]="modalEditCategory"
+      [p-options]="serviceTasks.categories">
+    </po-select>
+
+    <po-textarea
+      class="po-lg-12"
+      name="po-tarefa"
+      p-label="Tarefa"
+      [(ngModel)]="modalEditTask">
+    </po-textarea> -->
+  </div>
 </po-modal>

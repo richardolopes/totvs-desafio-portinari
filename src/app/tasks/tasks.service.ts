@@ -14,6 +14,13 @@ export class TasksService {
 
   public user = this.login.getUser();
 
+  public categories = [
+    'Angular',
+    'AdvPL',
+    'Matemática',
+    'Português'
+  ];
+
   listTasks() {
     return this.http.get(`tasks?email=${this.user}&_sort=deliveryEstimated&_order=asc`);
   }
@@ -29,15 +36,10 @@ export class TasksService {
       if (tasks[i].taskFinish) {
         tasks[i].status = 'finish';
       } else {
-        const date = new Date();
-        const year = date.getFullYear();
-        const month = (`00${(date.getMonth() + 1)}`).slice(-2);
-        const day = (`00${date.getDate()}`).slice(-2);
-
-        if (tasks[i].deliveryEstimated === `${year}-${month}-${day}`) {
+        if (tasks[i].deliveryEstimated === this.getDay()) {
           tasks[i].status = 'day';
         } else {
-          if (tasks[i].deliveryEstimated > `${year}-${month}-${day}`) {
+          if (tasks[i].deliveryEstimated > this.getDay()) {
             tasks[i].status = 'normal';
           } else {
             tasks[i].status = 'delayed';
@@ -47,6 +49,27 @@ export class TasksService {
     }
 
     return tasks;
+  }
+
+  getTasksInBacklog() {
+    return this.http.get(`tasks?steps=backlog&email=${this.user}`);
+  }
+
+  getTasksInProgress() {
+    return this.http.get(`tasks?steps=progress&email=${this.user}`);
+  }
+
+  getTasksFinish() {
+    return this.http.get(`tasks?steps=finish&email=${this.user}`);
+  }
+
+  getDay() {
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = (`00${(date.getMonth() + 1)}`).slice(-2);
+    const day = (`00${date.getDate()}`).slice(-2);
+
+    return `${year}-${month}-${day}`;
   }
 
   finishTask(task: Task, dateFinish: string) {

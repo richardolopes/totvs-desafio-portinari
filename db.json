@@ -29,24 +29,86 @@
       "taskCreated": "2020-03-12",
       "deliveryEstimated": "2020-03-27",
       "description": "SDSDA",
+      "taskFinish": "2020-03-26",
+      "steps": "finish",
+      "iduser": 1,
+      "email": "a@a",
+      "id": 8,
+      "status": "normal"
+    },
+    {
+      "name": "webjump-challenge",
+      "category": "Angular",
+      "taskCreated": "2020-03-03",
+      "deliveryEstimated": "2020-03-28",
+      "description": "00",
       "taskFinish": "",
       "steps": "backlog",
       "iduser": 1,
       "email": "a@a",
-      "id": 8
+      "id": 9
     },
     {
-      "name": "webjump-challenge",
+      "name": "aaaa",
       "category": "AdvPL",
       "taskCreated": "2020-03-27",
       "deliveryEstimated": "2020-03-28",
-      "description": "a",
-      "taskFinish": "2020-03-27",
+      "description": "aa",
+      "taskFinish": "",
+      "steps": "backlog",
+      "iduser": 1,
+      "email": "a@a",
+      "id": 10
+    },
+    {
+      "name": "Richard Lopes",
+      "category": "Português, Matemática",
+      "taskCreated": "2020-03-12",
+      "deliveryEstimated": "2020-03-30",
+      "description": "aaa",
+      "taskFinish": "",
+      "steps": "backlog",
+      "iduser": 1,
+      "email": "a@a",
+      "id": 11
+    },
+    {
+      "name": "RICHARD",
+      "category": "Angular",
+      "taskCreated": "2020-03-12",
+      "deliveryEstimated": "2020-03-30",
+      "description": null,
+      "taskFinish": "2020-03-28",
       "steps": "finish",
       "iduser": 1,
       "email": "a@a",
-      "id": 9,
+      "id": 12,
       "status": "normal"
+    },
+    {
+      "name": "teste",
+      "category": "Angular",
+      "taskCreated": "2020-03-12",
+      "deliveryEstimated": "2020-03-30",
+      "description": "ewq",
+      "taskFinish": "2020-03-30",
+      "steps": "finish",
+      "iduser": 1,
+      "email": "a@a",
+      "id": 13,
+      "status": "day"
+    },
+    {
+      "name": "Redragon",
+      "category": "Matemática",
+      "taskCreated": "2020-03-20",
+      "deliveryEstimated": "2020-03-31",
+      "description": "aa",
+      "taskFinish": "",
+      "steps": "backlog",
+      "iduser": 1,
+      "email": "a@a",
+      "id": 14
     }
   ]
 }

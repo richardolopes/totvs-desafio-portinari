@@ -33,7 +33,7 @@ export class NewTaskComponent implements OnInit {
       gridColumns: 3,
       gridSmColumns: 3,
       optional: true,
-      options: ['Angular', 'AdvPL', 'Matemática', 'Português'],
+      options: this.serviceTask.categories,
       optionsMulti: true,
     },
     {
@@ -53,6 +53,7 @@ export class NewTaskComponent implements OnInit {
       type: 'date',
       gridColumns: 3,
       gridSmColumns: 3,
+      required: true,
       minValue: `${this.year}-${this.month}-${this.day}`,
       errorMessage: 'A data não pode ser no passado.'
     },
@@ -102,7 +103,7 @@ export class NewTaskComponent implements OnInit {
 
   constructor(
     private poNotification: PoNotificationService,
-    private serviceTask: TasksService
+    private serviceTask: TasksService,
     ) { }
 
   ngOnInit() { }

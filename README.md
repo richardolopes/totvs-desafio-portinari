@@ -21,7 +21,7 @@
 - [x] Criar uma tarefa
 - [x] Lista de tarefas
 - [x] Marcar a tarefa como concluida
-- [ ] Histórico de tarefas
-- [x] Barra de busca 
+- [x] Histórico de tarefas
+- [ ] Barra de busca 
 - [x] Excluir tarefas
 - [x] Editar tarefas

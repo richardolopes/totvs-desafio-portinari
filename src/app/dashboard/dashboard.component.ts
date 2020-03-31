@@ -5,34 +5,34 @@ import { TasksService } from '../tasks/tasks.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: []
+  styleUrls: ['dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
 
-  public tasksInBacklog = 1;
-  public tasksInProgress = 2;
-  public tasksFinish = 1;
+  public tasksInBacklog: number;
+  public tasksInProgress: number;
+  public tasksFinish: number;
+
 
   constructor(private services: TasksService) { }
-
-  stepsChartType: PoChartType = PoChartType.Donut;
-
-  stepsChart: Array<PoPieChartSeries> = [
-    { category: 'backlog', value: this.tasksInBacklog, tooltip: 'Finland (Europe)' },
-    { category: 'progress', value: this.tasksInProgress, tooltip: 'Norway (Europe)' },
-    { category: 'finish', value: this.tasksFinish, tooltip: 'Netherlands (Europe)' },
-  ];
+  // stepsChartType: PoChartType = PoChartType.Donut;
+  // stepsChart: Array<PoPieChartSeries> = [
+  //   { category: 'backlog', value: this.tasksInBacklog, tooltip: 'Finland (Europe)' },
+  //   { category: 'progress', value: this.tasksInProgress, tooltip: 'Norway (Europe)' },
+  //   { category: 'finish', value: this.tasksFinish, tooltip: 'Netherlands (Europe)' },
+  // ];
 
   ngOnInit() {
-    this.services.getTasksInBacklog().subscribe(res => {
-      this.tasksInBacklog = Object.keys(res).length;
+    this.services.getTasksInBacklog().subscribe(num => {
+      this.tasksInBacklog = Object.values(num).length;
     });
-    this.services.getTasksInProgress().subscribe(res => {
-      this.tasksInProgress = Object.keys(res).length;
+
+    this.services.getTasksInProgress().subscribe(num => {
+      this.tasksInProgress = Object.values(num).length;
     });
-    this.services.getTasksFinish().subscribe(res => {
-      this.tasksFinish = Object.keys(res).length;
+
+    this.services.getTasksFinish().subscribe(num => {
+      this.tasksFinish = Object.values(num).length;
     });
   }
-
 }

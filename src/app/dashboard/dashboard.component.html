@@ -1,7 +1,41 @@
-<po-chart
+<!--
+Gráfico incrível:
+<po-chart *ngIf = ""
   class="po-lg-12 po-mt-2"
   [p-height]="500"
   p-title="Teste"
   [p-series]="stepsChart"
   [p-type]="stepsChartType">
-</po-chart>
+</po-chart> -->
+<div class="col-container">
+  <div class="col">
+    <po-widget
+      class="po-mt-2"
+      p-height="200"
+      p-primary="true"
+      p-title="Tarefas em BackLog">
+
+      <div class="po-font-subtitle po-text-center">{{ tasksInBacklog }}</div>
+    </po-widget>
+  </div>
+  <div class="col">
+    <po-widget
+      class="po-mt-2"
+      p-height="200"
+      p-primary="true"
+      p-title="Tarefas em Andamento">
+
+      <div class="po-font-subtitle po-text-center">{{ tasksInProgress }}</div>
+    </po-widget>
+  </div>
+  <div class="col">
+    <po-widget
+      class="po-mt-2"
+      p-height="200"
+      p-primary="true"
+      p-title="Tarefas Finalizadas">
+
+      <div class="po-font-subtitle po-text-center">{{ tasksFinish }}</div>
+    </po-widget>
+  </div>
+</div>

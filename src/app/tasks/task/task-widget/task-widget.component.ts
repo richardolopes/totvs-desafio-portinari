@@ -58,8 +58,6 @@ export class TaskComponent implements OnInit {
   };
 
   ngOnInit() {
-    if (this.task.taskFinish) { this.finish = 'Excluir Tarefa'; }
-    if (this.task.steps === 'progress') { this.finish = 'Mover para: Finalizar'; }
     this.stepsValue = this.task.steps;
     this.name = this.task.name;
     this.delivery = this.serviceTask.toDate(this.task.deliveryEstimated);
@@ -73,20 +71,5 @@ export class TaskComponent implements OnInit {
 
   viewTask(task: Task) {
     this.detailsTaskElement.open(task);
-  }
-
-  finishTask(task: Task) {
-    this.titleFinishTask = task.name;
-    if (task.taskFinish) {
-      this.poAlert.alert({
-        literals: this.literalsAlert,
-        title: 'this.title',
-        message: 'this',
-        ok: () =>
-          this.actionOptions.includes('ok') ? (this.action = 'OK') : undefined
-      });
-    } else {
-      this.finishTaskElement.open();
-    }
   }
 }

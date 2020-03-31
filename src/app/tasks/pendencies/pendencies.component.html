@@ -24,19 +24,19 @@
       <p class="po-font-title po-text-center">Backlog</p>
       <div *ngFor="let item of listTasksStep1" class="po-m-1">
         <app-task-widget [task]="item"></app-task-widget>
-        </div>
       </div>
-      <div class="col">
-        <p class="po-font-title po-text-center">Em andamento</p>
-        <div *ngFor="let item of listTasksStep2" class="po-m-1">
-          <app-task-widget [task]="item"></app-task-widget>
-        </div>
+    </div>
+    <div class="col">
+      <p class="po-font-title po-text-center">Em andamento</p>
+      <div *ngFor="let item of listTasksStep2" class="po-m-1">
+        <app-task-widget [task]="item"></app-task-widget>
       </div>
-      <div class="col">
-        <p class="po-font-title po-text-center">Concluída</p>
-        <div *ngFor="let item of listTasksStep3" class="po-m-1">
-          <app-task-widget [task]="item"></app-task-widget>
-        </div>
+    </div>
+    <div class="col">
+      <p class="po-font-title po-text-center">Concluída</p>
+      <div *ngFor="let item of listTasksStep3" class="po-m-1">
+        <app-task-widget [task]="item"></app-task-widget>
+      </div>
     </div>
   </div>
   <br>
@@ -65,27 +65,28 @@
   [p-secondary-action]="closeEdit">
 
   <div class="po-row">
-    <!-- <po-datepicker
-      class="po-lg-3"
-      name="datepicker"
+    <po-datepicker
+      class="po-lg-4"
+      name="po-datepicker"
       p-label="Prazo"
       [(ngModel)]="modalEditDate"
-      [p-min-date]="serviceTasks.getDay()">
+      (p-change)="changeDate($event)"
+      [p-min-date]="modalMinDate">
     </po-datepicker>
 
     <po-select
-      class="po-lg-3"
-      name="po-categoria"
-      p-label="Categoria"
-      [(ngModel)]="modalEditCategory"
-      [p-options]="serviceTasks.categories">
+      class="po-lg-4"
+      name="po-categories"
+      p-label="Categorias"
+      [p-options]="categories"
+      [(ngModel)]="modalEditCategory">
     </po-select>
 
-    <po-textarea
-      class="po-lg-12"
-      name="po-tarefa"
-      p-label="Tarefa"
+    <po-input
+      class="po-lg-8"
+      name="po-name"
+      p-label="Nome da Tarefa"
       [(ngModel)]="modalEditTask">
-    </po-textarea> -->
+    </po-input>
   </div>
 </po-modal>

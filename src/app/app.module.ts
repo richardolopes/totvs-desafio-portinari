@@ -15,6 +15,7 @@ import { LoginModule } from './login/login.module';
 import { TaskModalComponent } from './tasks/task/task-modal/task-modal.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     PoPageDynamicTableModule,
     LoginModule,
     PoPageDynamicSearchModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

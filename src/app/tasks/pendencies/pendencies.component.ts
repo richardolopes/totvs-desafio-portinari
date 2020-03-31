@@ -1,7 +1,7 @@
 import { Component, ViewChild, Injectable } from '@angular/core';
 import { TasksService } from '../tasks.service';
 // tslint:disable-next-line: max-line-length
-import { PoTableColumn, PoTableLiterals, PoNotificationService, PoModalComponent, PoModalAction, PoDatepickerComponent, PoDatepickerIsoFormat, PoDynamicFormField, PoDynamicFormComponent, PoDynamicFormLoad } from '@portinari/portinari-ui';
+import { PoTableColumn, PoTableLiterals, PoNotificationService, PoModalComponent, PoModalAction, PoDatepickerComponent, PoDatepickerIsoFormat, PoDynamicFormField, PoDynamicFormComponent, PoDynamicFormLoad, PoSelectOption } from '@portinari/portinari-ui';
 import { Router } from '@angular/router';
 import { Task } from '../task.model';
 
@@ -16,7 +16,7 @@ import { Task } from '../task.model';
 })
 export class PendenciesComponent {
 
-  constructor(private serviceTasks: TasksService, public route: Router, private poNotification: PoNotificationService) {
+  constructor(public serviceTasks: TasksService, public route: Router, private poNotification: PoNotificationService) {
     this.loadTasks();
   }
 
@@ -36,9 +36,16 @@ export class PendenciesComponent {
   public titleEdit = 'Editar Tarefa';
 
   // modal de editar tarefa
-  public modalEditDate: string;
-  public modalEditCategory: string;
-  public modalEditTask: string;
+  public categories = this.serviceTasks.categories.map((cat) => {
+    return {
+      label: cat,
+      value: cat
+    };
+  });
+  modalEditDate: string;
+  modalMinDate: string;
+  modalEditCategory: any;
+  modalEditTask: string;
 
 
   @ViewChild('modal', { static: true })
@@ -114,9 +121,15 @@ export class PendenciesComponent {
 
   confirmEdit: PoModalAction = {
     action: () => {
-      this.rowTaskModal = this.serviceTasks.finishTask(this.rowTaskModal, this.dateFinish);
-      this.updateTask(this.rowTaskModal);
-      this.modalTask.close();
+      if (!this.validEditTask(this.rowTaskModal)) {
+        this.poNotification.error('Os valores preenchidos estão incorretos!');
+      } else {
+        this.rowTaskModal.category = this.modalEditCategory;
+        this.rowTaskModal.deliveryEstimated = this.modalEditDate;
+        this.rowTaskModal.name = this.modalEditTask;
+        this.updateTask(this.rowTaskModal);
+        this.editModal.close();
+      }
     },
     label: 'Finalizar',
   };
@@ -126,8 +139,10 @@ export class PendenciesComponent {
   }
 
   editTask(row: Task) {
+    this.rowTaskModal = row;
+    this.modalMinDate = row.deliveryEstimated;
     this.modalEditCategory = row.category;
-    // this.modalEditDate = row.deliveryEstimated;
+    this.modalEditDate = row.deliveryEstimated;
     this.modalEditTask = row.name;
     this.editModal.open();
   }
@@ -183,7 +198,26 @@ export class PendenciesComponent {
     });
   }
 
+  changeDate(event: Date) {
+    if (this.serviceTasks.dateToString(event) === this.rowTaskModal.deliveryEstimated) {
+      this.modalMinDate = this.rowTaskModal.deliveryEstimated;
+    } else {
+      this.modalMinDate = this.serviceTasks.getDay();
+    }
+  }
+
   datePicker(event: Date) {
     this.dateFinish = this.serviceTasks.dateToString(event);
+  }
+
+  validEditTask(row: Task) {
+    if ((
+      row.deliveryEstimated >= this.serviceTasks.getDay() ||
+      row.deliveryEstimated === this.modalEditDate) &&
+      this.modalEditTask.length > 0) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

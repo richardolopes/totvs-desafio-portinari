@@ -34,7 +34,7 @@ export class NewTaskComponent implements OnInit {
       gridSmColumns: 3,
       optional: true,
       options: this.serviceTask.categories,
-      optionsMulti: true,
+      optionsMulti: false,
     },
     {
       property: 'taskCreated',
@@ -74,19 +74,9 @@ export class NewTaskComponent implements OnInit {
 
   newTask() {
     const data = this.dynamicForm.form.value;
-    let categories = '';
-    // tslint:disable-next-line: forin
-    if (typeof(data.category) === 'object') {
-      for (var i = 0; i < (data.category.length - 1); i++) {
-        categories += data.category[i] + ', ';
-      }
-      categories += data.category[i];
-      data.category = categories;
-    }
 
     data.taskFinish = '';
     data.steps = 'backlog';
-    data.iduser = 1;
 
     this.poNotification.information('Enviando informações...');
 

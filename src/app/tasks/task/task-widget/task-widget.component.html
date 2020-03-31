@@ -3,11 +3,9 @@
   class="po-mt-2"
   p-height="200"
   p-primary="true"
-  [p-primary-label]="finish"
-  p-secondary-label="Visualizar"
+  p-primary-label="Visualizar"
   [p-title]="titleWidget"
-  (p-primary-action)="finishTask(task)"
-  (p-secondary-action)="viewTask(task)">
+  (p-primary-action)="viewTask(task)">
 
   <div class="po-font-subtitle po-text-center">{{ task.name }}</div>
   <div class="po-text-center">Data estimada de entrega: {{ task.deliveryEstimated | date : 'dd/MM/yyyy' }}</div>

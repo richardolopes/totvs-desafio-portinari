@@ -1,27 +1,27 @@
-# DesafioPortinari
+# Certificados
+* HTTP: Entendendo a web por baixo dos panos - https://cursos.alura.com.br/user/richard-lopes0/course/http-fundamentos/certificate
+* HTML5 e CSS3 Parte 1: Primeira página da web - https://cursos.alura.com.br/user/richard-lopes0/course/html5-css3-primeiros-passos/certificate
+* HTML5 e CSS3 Parte 2: Posicionamento, listas e navegação - https://cursos.alura.com.br/user/richard-lopes0/course/html5-css3-posicionamento-listas-navegacao/certificate
+* JavaScript: Programando na linguagem da web - https://cursos.alura.com.br/user/richard-lopes0/course/javascript-programando-na-linguagem-web/certificate
+* JavaScript avançado I: ES6, orientação a objetos e padrões de projetos - https://cursos.alura.com.br/user/richard-lopes0/course/javascript-es6-orientacao-a-objetos-parte-1/certificate
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.18.
+# Para iniciar o projeto digite os seguintes comandos:
+* npm install
+* ng serve
 
-## Development server
+# Abrir um segundo terminal e digitar:
+* npm run apis
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Abrir a página http://localhost:4200/login
+* Usuário: a@a
+* Senha: 1
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+# Desafio Portinari:
+- [x] Realizar login 
+- [x] Criar uma tarefa
+- [x] Lista de tarefas
+- [x] Marcar a tarefa como concluida
+- [ ] Histórico de tarefas
+- [x] Barra de busca 
+- [x] Excluir tarefas
+- [x] Editar tarefas

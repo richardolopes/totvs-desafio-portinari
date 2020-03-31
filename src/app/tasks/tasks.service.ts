@@ -55,6 +55,12 @@ export class TasksService {
     return this.http.get(`tasks?steps=backlog&email=${this.user}`);
   }
 
+  async getTasksInBacklogAsync(): Promise<any> {
+    await this.http.get(`tasks?steps=backlog&email=${this.user}`).toPromise().then(res => {
+      return Object.keys(res).length;
+    });
+  }
+
   getTasksInProgress() {
     return this.http.get(`tasks?steps=progress&email=${this.user}`);
   }
@@ -72,7 +78,7 @@ export class TasksService {
     return `${year}-${month}-${day}`;
   }
 
-  finishTask(task: Task, dateFinish: string) {
+  finishTask(task: Task, dateFinish?: string) {
     task.steps = 'finish';
     task.taskFinish = dateFinish;
     if (task.deliveryEstimated === dateFinish) { task.status = 'day'; }
